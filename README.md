@@ -19,7 +19,7 @@
 
 ## Usage
 
-> Some usage instructions
+> Type in two NBA players to compare and click the button to see their degrees of separation. 
 
 ## Requirements
 
@@ -36,9 +36,7 @@
 From within the root directory:
 
 ```sh
-sudo npm install -g bower
-npm install
-bower install
+
 ```
 
 ### Roadmap
