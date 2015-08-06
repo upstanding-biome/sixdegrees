@@ -28,7 +28,7 @@
 - Angular 
 - Bookshelf 0.8.1 
 - Bootstrap
-- etc
+- PostgreSQL 9.3
 
 ## Development
 
