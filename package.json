@@ -23,6 +23,7 @@
     "debug": "~2.2.0",
     "express": "^4.13.3",
     "jade": "~1.11.0",
+    // might need method-override
     "morgan": "~1.6.1",
     "serve-favicon": "~2.3.0"
   }
