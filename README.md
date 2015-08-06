@@ -24,9 +24,10 @@
 ## Requirements
 
 - Node 0.10.x
+- Express
 - Angular 
-- mySQL 
-- etc
+- Bookshelf 0.8.1 
+- Bootstrap
 - etc
 
 ## Development
