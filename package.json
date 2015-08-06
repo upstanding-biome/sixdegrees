@@ -1,0 +1,23 @@
+{
+  "name": "six_dribbles",
+  "version": "1.0.0",
+  "description": "Greenfield Project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/upstanding-biome/sixdegrees.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/upstanding-biome/sixdegrees/issues"
+  },
+  "homepage": "https://github.com/upstanding-biome/sixdegrees#readme",
+  "dependencies": {
+    "angular": "^1.4.3",
+    "express": "^4.13.3"
+  }
+}
