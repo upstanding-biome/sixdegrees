@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/upstanding-biome/sixdegrees.png?label=ready&title=Ready)](https://waffle.io/upstanding-biome/sixdegrees)
 # Six Dribbles
 > This app allows a user to type in any two basketball players and will create a graphic visualization of their relationship.
 
