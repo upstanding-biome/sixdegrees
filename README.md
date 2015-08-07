@@ -19,16 +19,16 @@
 
 ## Usage
 
-> Type in two NBA players to compare and click the button to see their degrees of separation. 
+> Type in two NBA players to compare and click the button to see their degrees of separation.
 
 ## Requirements
 
 - Node 0.10.x
 - Express
-- Angular 
-- Bookshelf 0.8.1 
+- Angular
+- Sequelize
 - Bootstrap
-- PostgreSQL 9.3
+- neo4j database
 
 ## Development
 

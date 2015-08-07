@@ -17,7 +17,7 @@ var port = process.env.PORT || 3000
 app.use(express.static(_dirname + '/public'));
 
 // routes
-require('./server/routes')(app);
+require('./app/routes')(app);
 app.listen(port);
 
 // shoutout to the user
