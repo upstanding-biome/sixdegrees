@@ -12,16 +12,17 @@ var bodyParser = require('body-parser');
 
 // set our port
 var port = process.env.PORT || 3000
-
+console.log(__dirname);
+// Six_Dribbles/server/routes
 // set the static files location
-app.use(express.static(_dirname + '/public'));
+app.use(express.static(__dirname + '/public/scripts'));
 
 // routes
-require('./server/routes')(app);
+require('/server/routes')(app);
 app.listen(port);
 
 // shoutout to the user
-console.log('Game on on port ', port);
+console.log('Tip off on port', port);
 
 // expose the app
 exports = module.exports = app;
