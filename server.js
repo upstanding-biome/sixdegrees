@@ -13,7 +13,11 @@ var bodyParser = require('body-parser');
 var port = process.env.PORT || 3000
 console.log(__dirname);
 // set the static files location
-app.use(express.static(__dirname + '/public/'));
+server.configure(function(){
+  server.use('/node_modules', express.static(__dirname + '/node_modules'));
+  server.use(express.static(__dirname + '/public'));
+});
+// app.use(express.static(__dirname + '/node_modules'));
 
 // routes
 app.listen(port);
