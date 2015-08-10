@@ -9,18 +9,23 @@
 </head>
 <body ng-app='six-degrees' >
   <p>Welcome to Six Dribbles!</p>
-  <div ng-controller='BallerController'></div>
-  <input type="text" ng-model="ballerOne" ng-model="search.ballers"/>
+  <div ng-controller='BallerController'>
+  <input type="text"  ng-model="searchText.name"/>
   <input type="submit"/><br>
   <input type="text" ng-model="ballerTwo"/>
   <input type="submit"/>
-  <p ng-repeat="baller in ballers | filter:search" class="ballerOne">{{ballerOne}}</p><!--This is not working-->
-  <div ng-if="ballerOne && ballerTwo"><p class="baller">Let's map the relationship between {{ ballerOne }} and {{ ballerTwo}}!</p></div>
-  <!-- GIST -->
-  <!-- baller1View
-  baller2View
-  queryView -->
+
+    <ul ng-repeat="baller in ballers | filter: searchText:case:true">
+      <div ng-show="{{ baller }}">
+        <li>Let's map the relationship between {{ baller }} and {{ baller }}!</li>
+      </div>
+    </ul>
+
+ </div>
+
+  
 </body>
+
 <script>
 
 </script>
