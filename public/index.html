@@ -10,19 +10,20 @@
 <body ng-app='six-degrees' >
   <p>Welcome to Six Dribbles!</p>
   <div ng-controller='BallerController'>
-  <input type="text"  ng-model="searchText"/>
+  <input type="text"  ng-model="searchText.name"/>
   <input type="submit"/><br>
   <input type="text" ng-model="ballerTwo"/>
   <input type="submit"/>
-
-  <!-- <div ng-if="ballerOne && ballerTwo"> -->
-    <ul ng-repeat="baller in ballers | filter: searchText">
-      <li>Let's map the relationship between {{ baller }} and {{ baller }}!</li>
+  
+  <!-- <div ng-if="baller in ballers | filter: searchText"> -->
+    <ul ng-repeat="baller in ballers | filter: searchText:case:true">
+      <div ng-show="{{ baller }}">
+        <li>Let's map the relationship between {{ baller }} and {{ baller }}!</li>
+      </div>
     </ul>
- <!--  </div> -->
+  <!-- </div> -->
+
  </div>
-
-
 <script>
 
 </script>
