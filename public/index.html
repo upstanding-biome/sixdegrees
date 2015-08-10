@@ -14,13 +14,12 @@
   <input type="submit"/><br>
   <input type="text" ng-model="ballerTwo"/>
   <input type="submit"/>
+
   <p ng-repeat="baller in ballers | filter:search" class="ballerOne">{{ballerOne}}</p><!--This is not working-->
   <div ng-if="ballerOne && ballerTwo"><p class="baller">Let's map the relationship between {{ ballerOne }} and {{ ballerTwo}}!</p></div>
-  <!-- GIST -->
-  <!-- baller1View
-  baller2View
-  queryView -->
-</body>
+ 
+
+
 <script>
 
 </script>
