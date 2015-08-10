@@ -1,34 +1,31 @@
+<html ng-app='six-degrees'>
 <head>
   <title>Six Dribbles</title>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.js"></script>
   <script src="scripts/App/AppController.js"></script>
-  <script src="scripts/Ballers/BallerController.js"></script>
+  <script src="scripts/Ballers/BallerOneController.js"></script>
+  <!-- <script src="scripts/Ballers/BallerTwoController.js"></script> -->
   <script src="scripts/Query/QueryController.js"></script>
 
   <script src="app.js"></script>
 </head>
-<body ng-app='six-degrees' >
-  <p>Welcome to Six Dribbles!</p>
-  <div ng-controller='BallerController'>
-  <input type="text"  ng-model="searchText.name"/>
-  <input type="submit"/><br>
-  <input type="text" ng-model="ballerTwo"/>
+<body ng-controller="AppController">
+  <h1>Welcome to Six Dribbles!</h1>
+  <div ng-controller='BallerOneController' ng-controller="BallerTwoController" >
+  <input type="text"  ng-model="searchText.name"/><br>
+<!--   <div ng-controller='BallerTwoController'> -->
+  <input type="text" ng-model="search.name"/>
   <input type="submit"/>
+<!--   </div> -->
 
-    <ul ng-repeat="baller in ballers | filter: searchText:case:true">
-      <div ng-show="{{ baller }}">
-        <li>Let's map the relationship between {{ baller }} and {{ baller }}!</li>
-      </div>
-    </ul>
-
- </div>
-
-  
-</body>
-
-<script>
-
-</script>
+<!--       <div ng-repeat="ballerOne in ballers | filter: searchText:case:true" ng-repeat="ballerTwo in ballers | filter: searchText:case:true"> -->
+<!-- <div ng-show={{ballerTwo}}> -->
+          <div ng-repeat="ballerOne in ballers | filter: searchText:case:true">Let's map the relationship between <span ng-repeat="ballerOne in ballers | filter: searchText:case:true"> {{ ballerOne.name }} </span> and <span ng-repeat="ballerTwo in ballers | filter: search:case:true"> {{ ballerTwo.name }} </span>!
+          </div>
+        </div>
+        <!-- </div> -->
+<!--     </div> -->
+  </body>
 </html>
 
 <!-- This should go in the public js folder -->
