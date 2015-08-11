@@ -12,17 +12,17 @@
 <body ng-controller="AppController">
   <h1>Welcome to Six Dribbles!</h1>
   <div ng-controller='BallerOneController' ng-controller="BallerTwoController" >
-  <input type="text"  ng-model="searchText.name"/><br>
+  <input type="text" autocomplete placeholder="Player 1" ng-model="searchText.name" valid required/><br>
 <!--   <div ng-controller='BallerTwoController'> -->
-  <input type="text" ng-model="search.name"/>
+  <input type="text" autocomplete placeholder="Player 2" ng-model="search.name" valid required/>
   <input type="submit"/>
 <!--   </div> -->
 
 <!--       <div ng-repeat="ballerOne in ballers | filter: searchText:case:true" ng-repeat="ballerTwo in ballers | filter: searchText:case:true"> -->
-<!-- <div ng-show={{ballerTwo}}> -->
+<!-- <div ng-repeat="ballerTwo in ballers | filter: search:case">{{ballerTwo}}}</div> -->
           <div ng-repeat="ballerOne in ballers | filter: searchText:case:true">Let's map the relationship between <span ng-repeat="ballerOne in ballers | filter: searchText:case:true"> {{ ballerOne.name }} </span> and <span ng-repeat="ballerTwo in ballers | filter: search:case:true"> {{ ballerTwo.name }} </span>!
           </div>
-        </div>
+        <!-- </div> -->
         <!-- </div> -->
 <!--     </div> -->
   </body>
