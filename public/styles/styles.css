@@ -17,10 +17,10 @@ input.ng-invalid, input.ng-dirty {
     border: 2px red solid;
 }
 
-/*input.ng-valid { 
+input.good, input.good2 { 
     background: #00B200;
     border: 2px green solid;
-}*/
+}
 
 input.ng-pristine{ 
     background: #000;
