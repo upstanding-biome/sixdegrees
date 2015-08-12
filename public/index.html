@@ -9,6 +9,7 @@
   <script src="scripts/Ballers/BallerController.js"></script>
   <!-- <script src="scripts/Query/QueryController.js"></script> -->
 </head>
+
   <body ng-controller="AppController">
     <h1>Welcome to Six Dribbles!</h1>
       <div ng-controller='BallerController'>
@@ -26,3 +27,25 @@ Let's map the relationship between <span ng-repeat="ballerOne in ballers | filte
 <!-- http://jsfiddle.net/bkUEu/458/
 http://jsfiddle.net/saarmstrong/hYACX/8/light/
 http://jsfiddle.net/tRxzr/269/ -->
+=======
+  <body ng-controller="AppController">  
+    <h1>Welcome to Six Dribbles!</h1>
+    <div ng-controller='BallerController'>
+      <form name="ballerselect" novalidate>
+
+        <input id="ballerOne" novalidate type="text" placeholder="Player 1"
+        ng-model="searchText.name"
+        ng-init=""
+        ng-class="{ 'good': ((ballers|filter:searchText:case:true).length === 1) }"/>
+        <br>
+
+        <input id="ballerTwo" novalidate type="text" placeholder="Player 2"
+        ng-model="search.name"
+        ng-class="{ 'good': ((ballers|filter:search:case:true).length === 1) }" required/><br>
+
+        <input type="submit" ng-if="" ng-submit="update(master)" value="Connect!" ng-disabled="ballerselect.$invalid"/>
+      </form>
+    </div>
+  </body>
+</html>
+>>>>>>> 3c3bcbc97b6861c9fd7ceb62bfe3a800fecd0c36
