@@ -14,16 +14,14 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       url: '/about',
       templateUrl: 'about.html',
       controller: function ($stateParams) {
-        console.log($stateParams);
       }
     })
 
     // each of these sections will have their own view
     .state('neo4j', {
       url: '/graph',
-      templateUrl: 'baller.html',
+      templateUrl: '/scripts/App/graph.html',
       controller: function ($stateParams) {
-        console.log($stateParams);
       }
     })
 

@@ -63,6 +63,4 @@ app.controller('BallerController', function($scope, $http){
 //               );
 //       });
 //   };
-
-
  });
