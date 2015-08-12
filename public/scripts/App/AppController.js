@@ -10,6 +10,7 @@ app.controller('AppController', function($scope, $filter) {
       return {name: i};
     });
 
+});
     //Custom Filter not working.
     // $scope.baller2 = $scope.ballers;
     // $scope.baller1 = $scope.ballers;
@@ -24,5 +25,3 @@ app.controller('AppController', function($scope, $filter) {
     //   $scope.ballers = $filter('case')($scope.ballers, val)
     //   $scope.ballers = $filter('true')($scope.ballers, val)
     // });
-
-});
