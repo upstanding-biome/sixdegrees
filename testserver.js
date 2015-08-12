@@ -6,20 +6,33 @@ db = new neo4j('http://localhost:7474/');
 
 //Run raw cypher with params
 db.cypherQuery(
-  'CREATE (p:Player {name:"Kent"}) RETURN p',
-  // {
-  //   name: 'Ghuffran',
-  //   company: 'Modulus',
-  //   age: ~~(Math.random() * 100) //generate random age
-  // }, 
-  function (err, result) {
+
+  'LOAD CSV FROM "file:///Users/CristianAvalos/Desktop/Telegraph_projects/Week6/Greenfield_project/sixdegrees/MasterDB.csv" AS line MERGE(p:Player {name:line[0]}) MERGE(t:Team {name:line[2], year:line[1]})', function (err, result) {
     if (err) {
-      return console.log(err);
+      console.log(err);
     }
     if (result) {
-      console.log('HI')
+      db.cypherQuery(
+       'LOAD CSV FROM "file:///Users/CristianAvalos/Desktop/Telegraph_projects/Week6/Greenfield_project/sixdegrees/MasterDB.csv" AS line MATC functionH (p:Player), (t:Team) WHERE p.name = line[0] AND t.name = line[2] AND t.year = line[1] CREATE (p)-[r:PLAYS_IN]->(t)', function(err,result){
+        if(err){
+          console.log('there was an error running the query', err);
+        } else if(result){
+          console.log('Successfully Created Player and Team connections')
+        }
+      });
+      console.log('Successfully Create Player and Team nodes')
+
     }
     //console.log(result.data); // delivers an array of query results
     //console.log(result.columns); // delivers an array of names of objects getting returned
   }
+
 );
+
+);
+
+
+
+
+
+>>>>>>> 66bc457aeb0665e6dc8bb111627ace8a8ee16476
