@@ -17,6 +17,11 @@ db.cypherQuery(
         if(err){
           console.log('there was an error running the query', err);
         } else if(result){
+          console.log(result, 'result');
+          // There is no error
+          // We need to take information from RESULT
+          // and send this to graph.html
+          var data = result.data;
           console.log('Successfully Created Player and Team connections')
         }
       });
