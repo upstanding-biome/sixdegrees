@@ -22,5 +22,5 @@ app.controller('BallerController', function($scope, $http){
       });
   };
 
-
+  db.cypherQuery();
  });
