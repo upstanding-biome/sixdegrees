@@ -6,13 +6,15 @@ db = new neo4j('http://localhost:7474/');
 
 //Run raw cypher with params
 db.cypherQuery(
-  'LOAD CSV FROM "file:///Users/CristianAvalos/Desktop/Telegraph_projects/Week6/Greenfield_project/sixdegrees/TEST2.csv" AS line MERGE(p:Player {name:line[0]}) MERGE(t:Team {name:line[2], year:line[1]})', function (err, result) {
+
+  'LOAD CSV FROM "file://' + __dirname + '/TEST2.csv" AS line MERGE(p:Player {name:line[0]}) MERGE(t:Team {name:line[2], year:line[1]})', function (err, result) {
     if (err) {
       console.log(err);
     }
     if (result) {
       db.cypherQuery(
-        'LOAD CSV FROM "file:///Users/CristianAvalos/Desktop/Telegraph_projects/Week6/Greenfield_project/sixdegrees/TEST2.csv" AS line MATCH (p:Player), (t:Team) WHERE p.name = line[0] AND t.name = line[2] AND t.year = line[1] CREATE (p)-[r:PLAYS_IN]->(t)', function(err,result){
+
+       'LOAD CSV FROM "file://' + __dirname + '/TEST2.csv" AS line MATCH (p:Player), (t:Team) WHERE p.name = line[0] AND t.name = line[2] AND t.year = line[1] CREATE (p)-[r:PLAYS_IN]->(t)', function(err,result){
         if(err){
           console.log('there was an error running the query', err);
         } else if(result){
@@ -32,20 +34,8 @@ db.cypherQuery(
             });
         }
       });
-      console.log('Successfully Create Player and Team nodes');
+      console.log('Successfully Create Player and Team nodes')
+
     }
   }
   );
-
-
-// MATCH (p1:Player { name:"Russ Smith" }),(p2:Player { name:"Alex Len" }),
-//   p = shortestPath((p1)-[*]-(p2))
-// RETURN p
-
-
-
-
-
-// MATCH (p1:Player { name:"Russ Smith" }),(p2:Player { name:"Alex Len" }),
-//   p = shortestPath((p1)-[*]-(p2))
-//   RETURN p

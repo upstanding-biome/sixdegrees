@@ -1,1 +1,33 @@
 /*styles.css*/
+body {
+  margin: 0 auto;
+  text-align: center;
+}
+
+input {
+  margin: 20px;
+  height: 40px;
+  width: 200px;
+  font-size: 100%;
+  text-align: center;
+}
+
+h1 {
+  margin: 50px;
+  font-size: 200%;
+}
+
+input.ng-invalid, input.ng-dirty {
+    background: #FF0000;
+    border: 2px red solid;
+}
+
+input.good, input.good2 {
+    background: #00B200;
+    border: 2px green solid;
+}
+
+input.ng-pristine{
+    background: #000;
+    border: 2px black solid;
+}

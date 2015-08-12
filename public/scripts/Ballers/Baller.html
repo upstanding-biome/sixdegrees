@@ -1,0 +1,10 @@
+<form name="ballerselect" novalidate>
+  <input id="ballerOne" novalidate type="text" placeholder="Player 1"
+    ng-model="searchText.name"
+    ng-class="{'good': ((ballers|filter:searchText:case:true).length === 1) }"/>
+    <br>
+  <input id="ballerTwo" novalidate type="text" placeholder="Player 2"
+    ng-model="search.name"
+    ng-class="{'good2': ((ballers|filter:search:case:true).length === 1) }"/><br>
+  <input type="submit" ng-click="callDB(searchText.name, search.name)" value="Connect!" ng-disabled="{{false}}"/>
+</form>
