@@ -7,31 +7,21 @@
   <script src="app.js"></script>
   <script src="scripts/App/AppController.js"></script>
   <script src="scripts/Ballers/BallerController.js"></script>
-  
 </head>
+
+  <div>
   <nav class="navbar navbar-default">
     <ul class="dropdown-menu">
       <li><a href="#">Home</a></li>
-      <li><a href="#">About</a></li>
+      <li><a href="about.html">About</a></li>
     </ul>
-</nav>
-  
+  </nav>
 </div>
   <body ng-controller="AppController">
     <h1>Welcome to Six Dribbles!</h1>
       <div ng-controller='BallerController'>
         <div ui-view></div>
-        
     </div>
   </body>
-
 </html>
-<!-- <div ng-repeat="ballerTwo in ballers | filter: search:case">{{ballerTwo}}}</div> -->
-<!-- <div ng-repeat="ballerOne in ballers | filter: searchText:case:true">
-Let's map the relationship between <span ng-repeat="ballerOne in ballers | filter: searchText:case:true">
-{{ ballerOne.name }} </span> and <span ng-repeat="ballerTwo in ballers | filter: search:case:true">
-{{ ballerTwo.name }} </span>!
-</div>  This is just a checkpoint -->
-<!-- http://jsfiddle.net/bkUEu/458/
-http://jsfiddle.net/saarmstrong/hYACX/8/light/
-http://jsfiddle.net/tRxzr/269/ -->
+

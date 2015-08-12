@@ -20,7 +20,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       // each of these sections will have their own view
     .state('neo4j', {
       url: '/graph',
-      templateUrl: 'baller.html',
+      templateUrl: '/scripts/App/graph.html',
       controller: function ($stateParams) {
       }
     })
