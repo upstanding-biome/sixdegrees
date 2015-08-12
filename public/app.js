@@ -14,7 +14,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       url: '/about',
       templateUrl: 'about.html',
       controller: function ($stateParams) {
-        console.log($stateParams);
       }
     })
 
@@ -23,7 +22,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       url: '/graph',
       templateUrl: 'baller.html',
       controller: function ($stateParams) {
-        console.log($stateParams);
       }
     })
 
