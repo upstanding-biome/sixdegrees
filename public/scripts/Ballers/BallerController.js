@@ -6,5 +6,5 @@ app.controller('BallerController', function($scope){
   //This is used for the second basketball player.
   $scope.search = {};
   $scope.search.name = '';
-
+  
  });

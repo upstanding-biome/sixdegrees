@@ -16,6 +16,7 @@
 
         <input id="ballerOne" novalidate type="text" placeholder="Player 1"
         ng-model="searchText.name"
+        ng-init=""
         ng-class="{ 'good': ((ballers|filter:searchText:case:true).length === 1) }"/>
         <br>
 
@@ -23,7 +24,7 @@
         ng-model="search.name"
         ng-class="{ 'good': ((ballers|filter:search:case:true).length === 1) }" required/><br>
 
-        <input type="submit" ng-submit="update(master)" value="Connect!" ng-disabled="ballerselect.$invalid"/>
+        <input type="submit" ng-if="" ng-submit="update(master)" value="Connect!" ng-disabled="ballerselect.$invalid"/>
       </form>
     </div>
   </body>
