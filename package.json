@@ -26,6 +26,7 @@
     "gulp": "^3.9.0",
     "gulp-cli": "^0.3.0",
     "morgan": "~1.6.1",
+    "node-neo4j": "^2.0.3",
     "serve-favicon": "~2.3.0",
     "ui-router": "0.0.1"
   },

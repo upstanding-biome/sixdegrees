@@ -1,4 +1,3 @@
-
 app.controller('AppController', function($scope, $filter) {
 
     //This function eliminates case sensitivity.

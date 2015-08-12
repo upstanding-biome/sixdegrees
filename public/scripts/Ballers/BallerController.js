@@ -13,8 +13,8 @@ app.controller('BallerController', function($scope, $http){
         url: '#/graph',
         method: "GET",
         data: [],
-        params: { name1: $scope.searchText.name,
-                  name2: $scope.search.name }
+        params: { name1: $scope.searchText.name.toLowerCase(),
+                  name2: $scope.search.name.toLowerCase() }
       }).success(function(data, status) {
           $scope.response = "GET Response: " + JSON.stringify(data.args);
           $scope.fullResponse = JSON.stringify(data);

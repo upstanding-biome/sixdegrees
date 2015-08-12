@@ -13,7 +13,7 @@ db.cypherQuery(
     if (result) {
       db.cypherQuery(
        'LOAD CSV FROM "file://' + __dirname + '/MasterDB.csv" AS line MATC functionH (p:Player), (t:Team) WHERE p.name = line[0] AND t.name = line[2] AND t.year = line[1] CREATE (p)-[r:PLAYS_IN]->(t)', function(err,result){
-        if(err){
+
           console.log('there was an error running the query', err);
         } else if(result){ // there is no error
            
@@ -30,4 +30,7 @@ db.cypherQuery(
   }
 
 );
+<<<<<<< HEAD
 
+=======
+>>>>>>> 74bf6db0ca38dc7f9ea01dfa2a6238326b44e226
