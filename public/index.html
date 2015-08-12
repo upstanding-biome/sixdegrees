@@ -9,12 +9,15 @@
   <script src="scripts/Ballers/BallerController.js"></script>
   <!-- <script src="scripts/Query/QueryController.js"></script> -->
 </head>
+
   <body ng-controller="AppController">
     <h1>Welcome to Six Dribbles!</h1>
       <div ng-controller='BallerController'>
         <div ui-view></div>
+        
     </div>
   </body>
+
 </html>
 <!-- <div ng-repeat="ballerTwo in ballers | filter: search:case">{{ballerTwo}}}</div> -->
 <!-- <div ng-repeat="ballerOne in ballers | filter: searchText:case:true">
