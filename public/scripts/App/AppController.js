@@ -26,3 +26,17 @@ app.controller('AppController', function($scope, $filter) {
     // });
 
 });
+// app.filter('search', function(val) {
+
+//   // In the return function, we must pass in a single parameter which will be the data we will work on.
+//   // We have the ability to support multiple other parameters that can be passed into the filter optionally
+//   return function(input, optional1, optional2) {
+//     var output;
+//     $scope.ballers = $filter('filter')($scope.baller2, val)
+//     $scope.ballers = $filter('case')($scope.ballers, val)
+//     $scope.ballers = $filter('true')($scope.ballers, val)
+//     return output;
+
+//   }
+
+// });

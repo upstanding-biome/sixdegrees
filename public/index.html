@@ -9,35 +9,22 @@
   <script src="scripts/Ballers/BallerController.js"></script>
   <!-- <script src="scripts/Query/QueryController.js"></script> -->
 </head>
-  <body ng-controller="AppController">  <h1>Welcome to Six Dribbles!</h1>
+  <body ng-controller="AppController">  
+    <h1>Welcome to Six Dribbles!</h1>
     <div ng-controller='BallerController'>
       <form name="ballerselect" novalidate>
+
         <input id="ballerOne" novalidate type="text" placeholder="Player 1"
         ng-model="searchText.name"
-        ng-class="{'good': ((ballers|filter:searchText:case:true).length === 1) }"/><br>  <!--  }" -->
-        <!-- <div ng-controller='BallerTwoController'> -->
+        ng-class="{ 'good': ((ballers|filter:searchText:case:true).length === 1) }"/>
+        <br>
+
         <input id="ballerTwo" novalidate type="text" placeholder="Player 2"
         ng-model="search.name"
-        ng-class="{'good2': ((ballers|filter:search:case:true).length === 1) }"/><br>
-        <input type="submit" ng-click="update(master)" value="Connect!" ng-disabled="{{true}}"/>
+        ng-class="{ 'good': ((ballers|filter:search:case:true).length === 1) }" required/><br>
+
+        <input type="submit" ng-submit="update(master)" value="Connect!" ng-disabled="ballerselect.$invalid"/>
       </form>
-      <!-- </div> -->
-      <!-- <div ng-repeat="ballerOne in ballers | filter: searchText:case:true" ng-repeat="ballerTwo in ballers | filter: searchText:case:true"> -->
-      <!-- <div ng-repeat="ballerTwo in ballers | filter: search:case">{{ballerTwo}}}</div> -->
-<!--       <div ng-repeat="ballerOne in ballers | filter: searchText:case:true">Let's map the relationship between <span ng-repeat="ballerOne in ballers | filter: searchText:case:true"> {{ ballerOne.name }} </span> and <span ng-repeat="ballerTwo in ballers | filter: search:case:true"> {{ ballerTwo.name }} </span>!
-      </div> -->
     </div>
   </body>
 </html>
-
-<!-- This should go in the public js folder -->
-<!-- // app.get('/', function(req, res){
-//  res.send('Game on');
-
-http://jsfiddle.net/bkUEu/458/
-
-http://jsfiddle.net/saarmstrong/hYACX/8/light/
-
-http://jsfiddle.net/tRxzr/269/
-
-// }); -->
