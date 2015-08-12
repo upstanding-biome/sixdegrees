@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 // var db = require(DATABASE PATH NAME);
 
 // set our port
-var port = process.env.PORT || 3000
+var port = process.env.PORT || 7473;
 console.log(__dirname);
 // set the static files location
 

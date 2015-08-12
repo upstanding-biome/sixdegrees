@@ -15,10 +15,14 @@ db.cypherQuery(
        'LOAD CSV FROM "file://' + __dirname + '/MasterDB.csv" AS line MATC functionH (p:Player), (t:Team) WHERE p.name = line[0] AND t.name = line[2] AND t.year = line[1] CREATE (p)-[r:PLAYS_IN]->(t)', function(err,result){
 
           console.log('there was an error running the query', err);
-        } else if(result){ // there is no error
-           
-            // take info from result
-            // send to graph.html 
+
+        } else if(result){
+          console.log(result, 'result');
+          // There is no error
+          // We need to take information from RESULT
+          // and send this to graph.html
+          var data = result.data;
+
           console.log('Successfully Created Player and Team connections')
         }
       });
