@@ -10,17 +10,8 @@ app.controller('AppController', function($scope, $filter) {
     });
 
 });
-    //Custom Filter not working.
-    // $scope.baller2 = $scope.ballers;
-    // $scope.baller1 = $scope.ballers;
 
-    // $scope.$watch('search', function(val){
-    //   $scope.ballers = $filter('filter')($scope.baller2, val)
-    //   $scope.ballers = $filter('case')($scope.ballers, val)
-    //   $scope.ballers = $filter('true')($scope.ballers, val)
-    // });
-    // $scope.$watch('searchText', function(val){
-    //   $scope.ballers = $filter('filter')($scope.baller1, val)
-    //   $scope.ballers = $filter('case')($scope.ballers, val)
-    //   $scope.ballers = $filter('true')($scope.ballers, val)
-    // });
+
+
+
+

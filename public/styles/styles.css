@@ -18,7 +18,7 @@ h1 {
 }
 
 input.ng-invalid, input.ng-dirty {
-    background: #F84072;
+    background: #FF0000;
     border: 2px red solid;
 }
 

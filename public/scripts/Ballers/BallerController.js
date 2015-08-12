@@ -7,6 +7,7 @@ app.controller('BallerController', function($scope, $http){
   $scope.search = {};
   $scope.search.name = '';
 
+
   $scope.callDB = function() {
 
       // GET request to build CYPHER query
@@ -21,5 +22,6 @@ app.controller('BallerController', function($scope, $http){
           $scope.fullResponse = JSON.stringify(data);
       });
   };
+
 
  });
