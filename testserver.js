@@ -3,7 +3,6 @@ var neo4j = require('node-neo4j');
 
 //Create a db object. We will using this object to work on the DB.
 db = new neo4j('http://localhost:7474/');
-
 //Run raw cypher with params
 db.cypherQuery(
 
@@ -13,10 +12,13 @@ db.cypherQuery(
     }
     if (result) {
       db.cypherQuery(
-       'LOAD CSV FROM "file://' + __dirname + '/MasterDB.csv" AS line MATCH (p:Player), (t:Team) WHERE p.name = line[0] AND t.name = line[2] AND t.year = line[1] CREATE (p)-[r:PLAYS_IN]->(t)', function(err,result){
-        if(err){
+       'LOAD CSV FROM "file://' + __dirname + '/MasterDB.csv" AS line MATC functionH (p:Player), (t:Team) WHERE p.name = line[0] AND t.name = line[2] AND t.year = line[1] CREATE (p)-[r:PLAYS_IN]->(t)', function(err,result){
+
           console.log('there was an error running the query', err);
-        } else if(result){
+        } else if(result){ // there is no error
+           
+            // take info from result
+            // send to graph.html 
           console.log('Successfully Created Player and Team connections')
         }
       });
@@ -28,3 +30,7 @@ db.cypherQuery(
   }
 
 );
+<<<<<<< HEAD
+
+=======
+>>>>>>> 74bf6db0ca38dc7f9ea01dfa2a6238326b44e226

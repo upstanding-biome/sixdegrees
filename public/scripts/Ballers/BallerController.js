@@ -7,12 +7,10 @@ app.controller('BallerController', function($scope, $http){
   $scope.search = {};
   $scope.search.name = '';
 
-
-  $scope.callDB = function() {
-
+  $scope.callDB = function(name1, name2) {
       // GET request to build CYPHER query
       $http({
-        url: '/graph',
+        url: '#/graph',
         method: "GET",
         data: [],
         params: { name1: $scope.searchText.name.toLowerCase(),
@@ -20,8 +18,9 @@ app.controller('BallerController', function($scope, $http){
       }).success(function(data, status) {
           $scope.response = "GET Response: " + JSON.stringify(data.args);
           $scope.fullResponse = JSON.stringify(data);
+
       });
   };
 
-
+  db.cypherQuery();
  });
