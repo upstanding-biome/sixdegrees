@@ -9,15 +9,15 @@
   <script src="scripts/Ballers/BallerController.js"></script>
 </head>
 
+  <body ng-controller="AppController">
   <div>
-  <nav class="navbar navbar-default">
-    <ul class="dropdown-menu">
-      <li><a href="#">Home</a></li>
-      <li><a href="about.html">About</a></li>
+    <nav class="navbar navbar-default">
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><a href="/">Home</a></li>
+      <li role="presentation"><a href="about.html">About</a></li>
     </ul>
   </nav>
-</div>
-  <body ng-controller="AppController">
+  </div>
     <h1>Welcome to Six Dribbles!</h1>
       <div ng-controller='BallerController'>
         <div ui-view></div>
