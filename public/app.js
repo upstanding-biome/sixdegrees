@@ -3,7 +3,7 @@ var app = angular.module('six-degrees', ["ui.router"])
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
 
   $stateProvider
-      // route to show our basic form (/form)
+    // route to show our basic form (/form)
     .state('landing', {
       url: '/',
       templateUrl: 'scripts/Ballers/Baller.html',
@@ -18,7 +18,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
       }
     })
 
-      // each of these sections will have their own view
+    // each of these sections will have their own view
     .state('neo4j', {
       url: '/graph',
       templateUrl: 'baller.html',
