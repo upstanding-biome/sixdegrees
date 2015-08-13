@@ -1,3 +1,5 @@
+var port =  process.env['GRAPHENEDB_URL'] ||
+    'http://localhost:7474';
 app.controller('BallerController', function($scope, $http){
   //Search and SearchText are separate functions in angular
   //We elected not to write a custom function and use these two over different players.
