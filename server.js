@@ -1,23 +1,45 @@
-// modules =================================================
-var express = require('express');
-var app = express();
-var bodyParser = require('body-parser');
+//Require the Neo4J module
+var neo4j = require('node-neo4j');
 
-// configuration ===========================================
+//Create a db object. We will using this object to work on the DB.
+var db = new neo4j.GraphDatabase(
+    process.env['GRAPHENEDB_URL'] ||
+    'http://localhost:7474'
+);
 
-// set our port
-var port = process.env.PORT || 7473;
+//Run raw cypher with params
+db.cypherQuery(
 
-// set the static files location
+  'LOAD CSV FROM "file://' + __dirname + '/MasterDB.csv" AS line MERGE(p:Player {name:line[0]}) MERGE(t:Team {name:line[2], year:line[1]})', function (err, result) {
+    if (err) {
+      console.log(err);
+    }
+    if (result) {
+      db.cypherQuery(
 
-app.use('/node_modules', express.static(__dirname + '/node_modules'));
-app.use(express.static(__dirname + '/public'));
+       'LOAD CSV FROM "file://' + __dirname + '/MasterDB.csv" AS line MATCH (p:Player), (t:Team) WHERE p.name = line[0] AND t.name = line[2] AND t.year = line[1] CREATE (p)-[r:PLAYS_IN]->(t)', function(err,result){
+        if(err){
+          console.log('there was an error running the query', err);
+        } else if(result){
+          console.log('Successfully Created Player and Team connections');
+// EXTRACT(n in nodes(p) | n.name)'
+          db.cypherQuery(
+            'MATCH (p1:Player {name:"Russ Smith"}), (p2:Player {name:"Alex Len"}), p = shortestPath( (p1) - [*]-(p2)  ) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year) ', function(err, p){
+              if(err){
+                console.log('error', err);
+              } else{
+                var data = p.data[0];
 
-// routes
-app.listen(port);
+                console.log(p.data[0]);
 
-// shoutout to the user
-console.log('Tip off on port', port);
+                console.log('success');
+              }
+            });
+        }
+      });
+      console.log('Successfully Create Player and Team nodes')
 
-// expose the app
-exports = module.exports = app;
+    }
+  }
+);
+
