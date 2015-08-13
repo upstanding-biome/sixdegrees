@@ -2,7 +2,10 @@
 var neo4j = require('node-neo4j');
 
 //Create a db object. We will using this object to work on the DB.
-db = new neo4j('http://localhost:7474/');
+var db = new neo4j.GraphDatabase(
+    process.env['GRAPHENEDB_URL'] ||
+    'http://localhost:7474'
+);
 
 //Run raw cypher with params
 db.cypherQuery(
