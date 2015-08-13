@@ -1,2 +1,3 @@
-web: neo4j start
+sh target/bin/webapp
+
 web: node server.js
