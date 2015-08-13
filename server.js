@@ -1,7 +1,11 @@
 // modules =================================================
+// var db = require('./db.js')
 var express = require('express');
 var bodyParser = require('body-parser');
 
+var db_url = "https://user:pass@example-url.do-stories.graphstory.com:7473";
+// var db_url = 'http://localhost:7474';
+var db = require("seraph")(db_url);
 // configuration ===========================================
   // connect to database here
 var app = express();
@@ -15,7 +19,15 @@ console.log(__dirname);
 // set the static files location
 
 
+app.get('#/player',function(err, result){
+    if (err) { console.log(err); }
+    if (result) { console.log(result); }
+    // db.queryRaw(cypher, function(err, result) {
+    //   if (err) { throw err; }
+    //   console.log("result",result);
+    // })
 
+})
 
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use(express.static(__dirname + '/public'));
@@ -53,4 +65,4 @@ app.listen(port);
 console.log('Tip off on port', port);
 
 // expose the app
-exports = module.exports = app;
+exports = module.exports = appServer;

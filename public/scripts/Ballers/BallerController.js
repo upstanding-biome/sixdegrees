@@ -1,3 +1,5 @@
+
+
 app.controller('BallerController', function($scope, $http){
   //Search and SearchText are separate functions in angular
   //We elected not to write a custom function and use these two over different players.
@@ -7,17 +9,33 @@ app.controller('BallerController', function($scope, $http){
   $scope.search = {};
   $scope.search.name = '';
 
-  $scope.callDB = function(name1, name2) {
+  $scope.callDB = function() {
     var query = 'MATCH (p1:Player { name:"' +
-        $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
-        $scope.search.name.toLowerCase() + '" }),' +
-        ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
-        console.log(query);
-
-    db.queryRaw(cypher, function(err, result) {
-      if (err) { throw err; }
-      console.log("result",result);
+    $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
+    $scope.search.name.toLowerCase() + '" }),' +
+    ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
+    console.log(query);
+    $http({
+      method:"POST",
+      url: '/graph',
+      // url: "https://neo-55cb99b18376e-364459c455.do-stories.graphstory.com:7473/db/data/cypher",
+      accepts: "application/json",
+      datatype:"json",
+      data: query,
+      success: function(data){ console.log('postdata',data); },
+      error:function(jqxhr, textstatus, errorthrown){ console.log(errorthrown); }
     })
+  };
+    // var query = 'MATCH (p1:Player { name:"' +
+    //     $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
+    //     $scope.search.name.toLowerCase() + '" }),' +
+    //     ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
+    //     console.log(query);
+
+    // db.queryRaw(cypher, function(err, result) {
+    //   if (err) { throw err; }
+    //   console.log("result",result);
+    // })
 
 
    //  var query = 'MATCH (p1:Player { name:"' +
@@ -81,5 +99,4 @@ app.controller('BallerController', function($scope, $http){
 
 //     $scope.dataset = str;
     // })
-  };
 });
