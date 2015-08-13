@@ -27,26 +27,11 @@ app.use(express.static(__dirname + '/public'));
 // });
 
 app.all('*', function(req, res,next) {
-
-
-    /**
-     * Response settings
-     * @type {Object}
-     */
-    var responseSettings = {
-        "AccessControlAllowOrigin": req.headers.origin,
-        "AccessControlAllowHeaders": "Content-Type,X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5,  Date, X-Api-Version, X-File-Name",
-        "AccessControlAllowMethods": "POST, GET, PUT, DELETE, OPTIONS",
-        "AccessControlAllowCredentials": true
-    };
-
-    /**
-     * Headers
-     */
-    // res.header("Access-Control-Allow-Credentials", responseSettings.AccessControlAllowCredentials);
-    res.header("Access-Control-Allow-Origin",  responseSettings.AccessControlAllowOrigin);
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    res.header("Access-Control-Allow-Methods", (req.headers['access-control-request-method']) ? req.headers['access-control-request-method'] : responseSettings.AccessControlAllowMethods);
+    /*Headers*/
+    res.header("Access-Control-Allow-Credentials", true);
+    res.header("Access-Control-Allow-Origin",  "http://six-dribbles.herokuapp.com");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
 
     if ('OPTIONS' == req.method) {
         res.send(200);
@@ -54,8 +39,6 @@ app.all('*', function(req, res,next) {
     else {
         next();
     }
-
-
 });
 
 // app.use(express.static(__dirname + '/node_modules'));
