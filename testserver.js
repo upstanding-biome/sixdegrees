@@ -1,4 +1,3 @@
-
 //Require the Neo4J module
 var neo4j = require('node-neo4j');
 
