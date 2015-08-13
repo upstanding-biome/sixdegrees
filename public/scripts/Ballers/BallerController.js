@@ -80,6 +80,6 @@ app.controller('BallerController', function($scope, $http){
 
 
 //     $scope.dataset = str;
-    })
+    // })
   };
 });
