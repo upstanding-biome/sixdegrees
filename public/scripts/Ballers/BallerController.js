@@ -20,7 +20,10 @@ app.controller('BallerController', function($scope, $http){
      datatype:"json",
      // withCredentials: true,
      headers: {
-      'Content-Type': 'application/json; charset=utf-8'
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
      },
      data:{ "query" : query },
      success: function(data){},
