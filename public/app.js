@@ -4,8 +4,8 @@ app.config(['$stateProvider', '$urlRouterProvider', '$httpProvider' , function($
   
   // delete header from client:
   // http://stackoverflow.com/questions/17289195/angularjs-post-data-to-external-rest-api
-  $httpProvider.defaults.useXDomain = true;
-  delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  // $httpProvider.defaults.useXDomain = true;
+  // delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
   $stateProvider
     // route to show our basic form (/form)

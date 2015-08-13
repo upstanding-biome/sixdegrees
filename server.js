@@ -14,8 +14,17 @@ var port = process.env.PORT || 7473;
 console.log(__dirname);
 // set the static files location
 
-  app.use('/node_modules', express.static(__dirname + '/node_modules'));
-  app.use(express.static(__dirname + '/public'));
+app.use('/node_modules', express.static(__dirname + '/node_modules'));
+app.use(express.static(__dirname + '/public'));
+
+app.all('/posts', function(req, res){
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    // res.send(
+    //     { posts : ... }
+    // );
+});
+
 
 // app.use(express.static(__dirname + '/node_modules'));
 
