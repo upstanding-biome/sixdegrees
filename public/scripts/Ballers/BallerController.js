@@ -12,49 +12,55 @@ app.controller('BallerController', function($scope, $http){
       $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
       $scope.search.name.toLowerCase() + '" }),' +
       ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
+      console.log(query);
    $http({
      method:"post",
-     url: "http://localhost:7474/db/data/cypher",
+     url: "#/db/data/cypher",
      accepts: "application/json",
      datatype:"json",
      data:{ "query" : query },
-     success: function(){},
+     success: function(data){},
      error:function(jqxhr, textstatus, errorthrown){
     }
    })//end of placelist ajax
     .success(function(data) {
 
-$scope.dataset = '';
+      console.log(data);
+      console.log(data.data);
+      console.log(data.data[0]);
+      console.log(data.data[0][0]);
 
-   var players = [];
-   var teams = [];
-   var years = [];
+// $scope.dataset = '';
 
-   for( var i = 0; i < data.data[0][0].length; i++){
-     if(i%2 === 0){
-       players.push(data.data[0][0][i]);
-     } else{
-       teams.push(data.data[0][0][i]);
-     }
-   }
+//    var players = [];
+//    var teams = [];
+//    var years = [];
 
-   for(var i =0 ; i < data.data[0][1].length; i++){
-     if(data.data[0][1][i] !== null){
-       years.push(data.data[0][1][i]);
-     }
-   }
+//    for( var i = 0; i < data.data[0][0].length; i++){
+//      if(i%2 === 0){
+//        players.push(data.data[0][0][i]);
+//      } else{
+//        teams.push(data.data[0][0][i]);
+//      }
+//    }
 
-    var str = '';
+//    for(var i =0 ; i < data.data[0][1].length; i++){
+//      if(data.data[0][1][i] !== null){
+//        years.push(data.data[0][1][i]);
+//      }
+//    }
 
-    for( var i = 0; i < teams.length; i++){
-     str += players[i] + ' played in ' + teams[i] + ' in ' + years[i] +' with ';
-     if(i === teams.length- 1){
-       str += players[i+1];
-     }
-    }
+//     var str = '';
+
+//     for( var i = 0; i < teams.length; i++){
+//      str += players[i] + ' played in ' + teams[i] + ' in ' + years[i] +' with ';
+//      if(i === teams.length- 1){
+//        str += players[i+1];
+//      }
+//     }
 
 
-    $scope.dataset = str;
+//     $scope.dataset = str;
     })
   };
 });
