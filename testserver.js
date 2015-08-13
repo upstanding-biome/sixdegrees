@@ -42,5 +42,5 @@ db.cypherQuery(
 
     }
   }
-  );
+);
 

@@ -1,5 +1,3 @@
-var port =  process.env['GRAPHENEDB_URL'] ||
-    'http://localhost:7474';
 app.controller('BallerController', function($scope, $http){
   //Search and SearchText are separate functions in angular
   //We elected not to write a custom function and use these two over different players.
@@ -16,7 +14,7 @@ app.controller('BallerController', function($scope, $http){
       ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
    $http({
      method:"post",
-     url: port + '/db/data/cypher',
+     url:'/db/data/cypher',
      accepts: "application/json",
      datatype:"json",
      data:{ "query" : query },
