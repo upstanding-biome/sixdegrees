@@ -12,18 +12,19 @@ app.controller('BallerController', function($scope, $http){
       $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
       $scope.search.name.toLowerCase() + '" }),' +
       ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
+
    $http({
      method:"post",
-     url:'/db/data/cypher',
+     url:  'http://app39991019:c1R9PJMtTrQzXW2F4bnq@app39991019.sb05.stations.graphenedb.com:24789' + '/db/data/cypher',
      accepts: "application/json",
      datatype:"json",
      data:{ "query" : query },
      success: function(){},
      error:function(jqxhr, textstatus, errorthrown){ console.log('Failed!', textstatus); }
    })//end of placelist ajax
+
     .success(function(data) {
 $scope.dataset = '';
-
    var players = [];
    var teams = [];
    var years = [];
