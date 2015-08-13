@@ -20,6 +20,7 @@ app.use(express.static(__dirname + '/public'));
 app.all('*', function(req, res){
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    console.log(res);
     // res.send(
     //     { posts : ... }
     // );
