@@ -14,7 +14,7 @@ app.controller('BallerController', function($scope, $http){
       ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
    $http({
      method:"post",
-     url: "http://localhost:7474/db/data/cypher",
+     url: port + '/db/data/cypher'
      accepts: "application/json",
      datatype:"json",
      data:{ "query" : query },
