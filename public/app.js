@@ -1,6 +1,11 @@
 // app.js
 var app = angular.module('six-degrees', ["ui.router"])
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+  
+  // delete header from client:
+  // http://stackoverflow.com/questions/17289195/angularjs-post-data-to-external-rest-api
+  $httpProvider.defaults.useXDomain = true;
+  delete $httpProvider.defaults.headers.common['X-Requested-With'];
 
   $stateProvider
     // route to show our basic form (/form)
