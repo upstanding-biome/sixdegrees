@@ -15,7 +15,7 @@ app.controller('BallerController', function($scope, $http){
 
    $http({
      method:"post",
-     url:  'http://app39991019:c1R9PJMtTrQzXW2F4bnq@app39991019.sb05.stations.graphenedb.com:24789/db/data/cypher',
+     url:  'https://app39991019:c1R9PJMtTrQzXW2F4bnq@app39991019.sb05.stations.graphenedb.com:24789/db/data/cypher',
      accepts: "application/json",
      datatype:"json",
      data:{ "query" : query },

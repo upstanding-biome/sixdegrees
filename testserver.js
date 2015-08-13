@@ -6,8 +6,7 @@ var db = new neo4j.GraphDatabase(
     process.env['GRAPHENEDB_URL'] ||
     'http://localhost:7474'
 );
-var port =  process.env['GRAPHENEDB_URL'] ||
-    'http://localhost:7474';
+
 //Run raw cypher with params
 db.cypherQuery(
 
