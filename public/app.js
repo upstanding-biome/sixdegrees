@@ -7,7 +7,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     .state('landing', {
       url: '/',
       templateUrl: 'scripts/Ballers/Baller.html',
-      controller: 'BallerController'
+      controller: 'BallerController' 
     })
 
     .state('about', {
