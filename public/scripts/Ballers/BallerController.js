@@ -20,7 +20,7 @@ app.controller('BallerController', function($scope, $http){
      datatype:"json",
      // withCredentials: true,
      headers: {
-        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Origin' : 'http://six-dribbles.herokuapp.com',
         'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
         'Content-Type': 'application/json',
         'Accept': 'application/json'
