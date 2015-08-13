@@ -1,10 +1,10 @@
 // modules =================================================
 var express = require('express');
-var app = express();
 var bodyParser = require('body-parser');
 
 // configuration ===========================================
-	// connect to database here
+  // connect to database here
+var app = express();
 
 // config files
 // var db = require(DATABASE PATH NAME);

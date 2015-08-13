@@ -19,9 +19,11 @@ app.controller('BallerController', function($scope, $http){
      datatype:"json",
      data:{ "query" : query },
      success: function(){},
-     error:function(jqxhr, textstatus, errorthrown){ console.log('Failed!', textstatus); }
+     error:function(jqxhr, textstatus, errorthrown){
+    }
    })//end of placelist ajax
     .success(function(data) {
+
 $scope.dataset = '';
 
    var players = [];
