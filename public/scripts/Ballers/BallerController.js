@@ -15,7 +15,7 @@ app.controller('BallerController', function($scope, $http){
       console.log(query);
    $http({
      method:"post",
-     url: "http://localhost7474/db/data/cypher",
+     url: "https://neo-55cb99b18376e-364459c455.do-stories.graphstory.com:7473/db/data/cypher",
      accepts: "application/json",
      datatype:"json",
      data:{ "query" : query },
