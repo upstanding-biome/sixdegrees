@@ -17,7 +17,7 @@ console.log(__dirname);
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use(express.static(__dirname + '/public'));
 
-app.all('/posts', function(req, res){
+app.all('*', function(req, res){
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "X-Requested-With");
     // res.send(
