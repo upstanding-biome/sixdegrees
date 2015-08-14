@@ -26,20 +26,20 @@ app.use(express.static(__dirname + '/public'));
 //     // );
 // });
 
-app.all('*', function(req, res,next) {
-    /*Headers*/
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header("Access-Control-Allow-Origin",  "http://six-dribbles.herokuapp.com");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
+// app.all('*', function(req, res,next) {
+//     /*Headers*/
+//     res.header("Access-Control-Allow-Credentials", true);
+//     res.header("Access-Control-Allow-Origin",  "http://six-dribbles.herokuapp.com");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+//     res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
 
-    if ('OPTIONS' == req.method) {
-        res.send(200);
-    }
-    else {
-        next();
-    }
-});
+//     if ('OPTIONS' == req.method) {
+//         res.send(200);
+//     }
+//     else {
+//         next();
+//     }
+// });
 
 // app.use(express.static(__dirname + '/node_modules'));
 

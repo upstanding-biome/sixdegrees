@@ -20,20 +20,12 @@ app.controller('BallerController', function($scope, $http){
       console.log(query);
    $http({
      method:"POST",
-     url: "https://neo-55cb99b18376e-364459c455.do-stories.graphstory.com:7473/db/data/cypher",
+     url: "http://localhost:7474/db/data/cypher",
      accepts: "application/json",
      datatype:"json",
-     withCredentials: true,
-     headers: {
-        'Access-Control-Allow-Origin' : 'http://six-dribbles.herokuapp.com',
-        'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-     },
-     data: { "query" : query },
-     success: function(data){},
-     error:function(jqxhr, textstatus, errorthrown){
-    }
+     data:{ "query" : query },
+     success: function(){},
+     error:function(jqxhr, textstatus, errorthrown){}
    })//end of placelist ajax
     .success(function(data) {
 

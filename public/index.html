@@ -9,7 +9,7 @@
   <script src="scripts/Ballers/BallerController.js"></script>
 </head>
 <div class="body text-center">
-  <body ng-controller="AppController">
+  <body ng-controller="AppController" style="background-image:url('styles/hardwood.jpg')">
   <div>
     <nav class="navbar navbar-default">
     <ul class="nav nav-pills">
@@ -18,17 +18,16 @@
     </ul>
   </nav>
   </div>
-    <h1 class="titlepage">Welcome to Six Dribbles!</h1>
+    <h1 class="titlepage" style="color: #C8AD7F;">Welcome to Six Dribbles!</h1>
     <br>
     <br>
-    <h4>Connect two of your favorite NBA players!</h4>
+    <h4 style="color: #C8AD7F;">Connect two of your favorite NBA players!</h4>
     <br>
     <br>
       <div ng-controller='BallerController'>
         <div ui-view></div>
     </div>
-     <div>
   </body>
-</div>
+  </div>
 </html>
 
