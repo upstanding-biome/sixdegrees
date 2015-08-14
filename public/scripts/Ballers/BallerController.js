@@ -17,13 +17,21 @@ app.controller('BallerController', function($scope, $http){
       $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
       $scope.search.name.toLowerCase() + '" }),' +
       ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
+      console.log(query);
    $http({
-     method:"post",
-     url: "http://localhost:7474/db/data/cypher",
+     method:"POST",
+     url: "https://neo-55cb99b18376e-364459c455.do-stories.graphstory.com:7473/db/data/cypher",
      accepts: "application/json",
      datatype:"json",
-     data:{ "query" : query },
-     success: function(){},
+     withCredentials: true,
+     headers: {
+        'Access-Control-Allow-Origin' : 'http://six-dribbles.herokuapp.com',
+        'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+     },
+     data: { "query" : query },
+     success: function(data){},
      error:function(jqxhr, textstatus, errorthrown){
     }
    })//end of placelist ajax
@@ -58,9 +66,13 @@ $scope.dataset = '';
        str += players[i+1].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ');
      }
     }
-
+      // console.log(data);
+      // console.log(data.data);
+      // console.log(data.data[0]);
+      // console.log(data.data[0][0]);
 
     $scope.dataset = str;
+
     })
   };
 });
