@@ -8,7 +8,7 @@
   <script src="scripts/App/AppController.js"></script>
   <script src="scripts/Ballers/BallerController.js"></script>
 </head>
-
+<div class="body text-center">
   <body ng-controller="AppController">
   <div>
     <nav class="navbar navbar-default">
@@ -18,11 +18,17 @@
     </ul>
   </nav>
   </div>
-    <h1>Welcome to Six Dribbles!</h1>
+    <h1 class="titlepage">Welcome to Six Dribbles!</h1>
+    <br>
+    <br>
+    <h4>Connect two of your favorite NBA players!</h4>
+    <br>
+    <br>
       <div ng-controller='BallerController'>
         <div ui-view></div>
     </div>
      <div>
   </body>
+</div>
 </html>
 

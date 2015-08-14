@@ -1,4 +1,9 @@
 app.controller('BallerController', function($scope, $http){
+
+  String.prototype.capitalizeFirstLetter = function() {
+      return this.charAt(0).toUpperCase() + this.slice(1);
+  }
+
   //Search and SearchText are separate functions in angular
   //We elected not to write a custom function and use these two over different players.
   $scope.searchText = {};
@@ -47,9 +52,10 @@ $scope.dataset = '';
     var str = '';
 
     for( var i = 0; i < teams.length; i++){
-     str += players[i] + ' played in ' + teams[i] + ' in ' + years[i] +' with ';
+     str += players[i].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ') + ((i === 0) ? "" : " who") +
+     ' played in ' + teams[i] + ' in ' + years[i] +' with ';
      if(i === teams.length- 1){
-       str += players[i+1];
+       str += players[i+1].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ');
      }
     }
 
