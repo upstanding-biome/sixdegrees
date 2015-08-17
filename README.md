@@ -10,23 +10,25 @@
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
-1. [Contributing](#contributing)
+2. [Requirements](#requirements)
+3. [Development](#development)
+    a. [Installing Dependencies](#installing-dependencies)
+    b. [Tasks](#tasks)
+4. [Team](#team)
+5. [Contributing](#contributing)
 
 ## Usage
 
-> Type in two NBA players to compare and click the button to see their degrees of separation.
+1. Type npm install in your console or terminal to install the dependencies
+2. Type neo4j start in a new tab in your terminal to start the neo4j server
+3. Open your browser to localhost://5000
+4. Type two players names and press Enter.
 
 ## Requirements
 
 - Node 0.10.x
 - Express
 - Angular
-- Sequelize
 - Bootstrap
 - neo4j database
 
@@ -34,11 +36,10 @@
 
 ### Installing Dependencies
 
-From within the root directory:
-
-```sh
-
-```
+> Install neo4j
+```npm install neo4j
+> Install Express
+```npm install express
 
 ### Roadmap
 
