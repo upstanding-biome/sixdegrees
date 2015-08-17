@@ -51,4 +51,4 @@ Our project is still not deployed successfully. The project works in localhost a
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+See [CONTRIBUTIONS.md](CONTRIBUTIONS.md) for contribution guidelines.
