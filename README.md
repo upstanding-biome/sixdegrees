@@ -19,32 +19,35 @@
 
 ## Usage
 
-1. Type npm install in your console or terminal to install the dependencies
-2. Type neo4j start in a new tab in your terminal to start the neo4j server
-3. Open your browser to localhost://5000
-4. Type two players names and press Enter.
+1. Brew install neo4j
+2. Install or update to java 1.7 or later.
+2. Type npm install in your console or terminal to install the dependencies
+3. Type neo4j start in a new tab in your terminal to start the neo4j server
+4. Type node server.js to start server and open browser to localhost:7473
+5. Type two players names and press Enter.
 
-## Requirements
+## Dependancies
 
-- Node 0.10.x
+- Java 1.7
+- Neo4J
+- Node
 - Express
 - Angular
 - Bootstrap
-- neo4j database
+- Angular UI Router
 
 ## Development
 
 ### Installing Dependencies
 
-> Install neo4j
-```npm install neo4j
-> Install Express
-```npm install express
+The package json contains all necessary dependencies except for java and neo4J.
 
 ### Roadmap
 
 View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 
+Our project is still not deployed successfully.
+The project works in localhost and has a hosted database using graph story, an add in of heroku. The database is located at https://neo-55cb99b18376e-364459c455.do-stories.graphstory.com:7473/browser/ and ask someone involved in the project for the database code.
 
 ## Contributing
 
