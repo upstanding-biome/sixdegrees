@@ -21,6 +21,7 @@ app.controller('BallerController', function($scope, $http){
    $http({
      method:"POST",
      url: "http://localhost:7474/db/data/cypher",
+     /*Use this url for local hosting*/
      accepts: "application/json",
      datatype:"json",
      data:{ "query" : query },
