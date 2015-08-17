@@ -23,22 +23,22 @@ Once the project moves into development, the press release can be used as a touc
   > Basketball fans can now find out how their favorite players are related in the league.
 
 ## Summary ##
-  > By typing in the name of any two players in the NBA .
+  > By typing in the name of any two players in the NBA, users can experience six degrees of the NBA and view how all players, past and present are related to one another.
 
 ## Problem ##
-  > Describe the problem your product solves.
+  > Understanding legacy in the NBA is difficult without watching a sports broadcast or spending a whole evening searching for years played by a particular player. The ability of users to access relevant NBA stats is far from perfect.
 
 ## Solution ##
-  > Describe how your product elegantly solves the problem.
+  > Six Dribbles is a solution by allowing the user to quickly see how players are related throughout the years and have fun playing six degrees of separation with their favorite ballers. 
 
 ## Quote from You ##
   > A quote from a spokesperson in your company.
 
 ## How to Get Started ##
-  > Describe how easy it is to get started.
-
-## Customer Quote ##
-  > Provide a quote from a hypothetical customer that describes how they experienced the benefit.
+  > All you need to get started are two names and a working browser. 
 
 ## Closing and Call to Action ##
-  > Wrap it up and give pointers where the reader should go next.
+  > Want to make this app better? Read our contribution guide to find out how to add cool features like 
+  -expanding the database to NCAA teams
+  -graphic visualizations of relationships
+  -spelling suggestions 
