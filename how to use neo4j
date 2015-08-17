@@ -14,7 +14,7 @@ how to use neo4j
 
 LOAD CSV FROM 'file:///Users/CristianAvalos/Desktop/Telegraph_projects/Week6/Greenfield project/sixdegrees/TEST2.csv' as line
 MERGE (p:Player {name:line[1]})
-MERGE (g:Team {name:line[3], year:line[2]})
+MERGE (g:Team {name:line[3], year:line[2]w})
 return p,g
 
 ********************************* CREATE CONNECTION BETWEEN TEAMS AND PLAYERS ********************************
