@@ -12,8 +12,8 @@
 1. [Usage](#Usage)
 2. [Requirements](#requirements)
 3. [Development](#development)
-    a. [Installing Dependencies](#installing-dependencies)
-    b. [Tasks](#tasks)
+    1. [Installing Dependencies](#installing-dependencies)
+    2. [Tasks](#tasks)
 4. [Team](#team)
 5. [Contributing](#contributing)
 
@@ -48,4 +48,4 @@ View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+See [CONTRIBUTIONS.md](CONTRIBUTIONS.md) for contribution guidelines.
