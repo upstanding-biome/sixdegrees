@@ -5,7 +5,7 @@
 
   - __Product Owner__: Christopher Salam
   - __Scrum Master__: Kim Merino
-  - __Development Team Members__: Christian Avalos, Kim Merino, Kent Ou, Christopher Salam
+  - __Development Team Members__: Cristian Avalos, Kim Merino, Kent Ou, Christopher Salam
 
 ## Table of Contents
 
@@ -38,16 +38,16 @@
 
 ## Development
 
-
-
 ### Installing Dependencies
 
 
+The package json contains all necessary dependencies except for java and neo4J.
 
 ### Roadmap
 
 View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 
+Our project is still not deployed successfully. The project works in localhost and has a hosted database using graph story, an add in of heroku. The database is located at https://neo-55cb99b18376e-364459c455.do-stories.graphstory.com:7473/browser/ and ask someone involved in the project for the database code.
 
 ## Contributing
 
