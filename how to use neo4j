@@ -9,9 +9,6 @@ how to use neo4j
 
 5. Once your database has started, you can visit localhost:7474 to use the neo4j browser. Here you can visually see the graph database with its nodes and connections
 
-6. 
-
-
 
 ********************** LOAD FILE AND CREATE NODES (NON REPEATED PLAYERS, NON REPEATED TEAMS) ******************
 
