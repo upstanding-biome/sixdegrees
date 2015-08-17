@@ -1,3 +1,15 @@
+how to use neo4j
+
+1. go to neo4j.com/download/ and download the community edition
+2. save the downloaded files to the working repo folder
+3. check java version in terminal using 'java -version' command for version 1.7 and up (if you have 1.8, you will get a warning)
+4. once installed, you can start the database by typing 'neo4j start'
+
+**alternatively, you can 'brew install neo4j'
+
+5. Once your database has started, you can visit localhost:7474 to use the neo4j browser. Here you can visually see the graph database with its nodes and connections
+
+
 ********************** LOAD FILE AND CREATE NODES (NON REPEATED PLAYERS, NON REPEATED TEAMS) ******************
 
 LOAD CSV FROM 'file:///Users/CristianAvalos/Desktop/Telegraph_projects/Week6/Greenfield project/sixdegrees/TEST2.csv' as line
@@ -32,7 +44,7 @@ DELETE n,r
 git fetch upstream
 git rebase upstream /master
 
-**************GRAPH STORY******************
+************************************** GRAPH STORY ******************************************
 
 USING PERIODIC COMMIT
 LOAD CSV FROM 'http://chrissalam.com/six/MasterDB.csv' as line
