@@ -9,9 +9,12 @@ how to use neo4j
 
 5. Once your database has started, you can visit localhost:7474 to use the neo4j browser. Here you can visually see the graph database with its nodes and connections
 
+<<<<<<< HEAD
 6. You can write Cypher query commands in the browser
 
 
+=======
+>>>>>>> 25c5ea5e133a1c29a2f6d1dcc46e5240aa272ac0
 
 ********************** LOAD FILE AND CREATE NODES (NON REPEATED PLAYERS, NON REPEATED TEAMS) ******************
 
