@@ -1,7 +1,7 @@
 app.controller('BallerController', function($scope, $http){
 
   String.prototype.capitalizeFirstLetter = function() {
-      return this.charAt(0).toUpperCase() + this.slice(1);
+    return this.charAt(0).toUpperCase() + this.slice(1);
   }
 
   //Search and SearchText are separate functions in angular
@@ -16,51 +16,51 @@ app.controller('BallerController', function($scope, $http){
     var query = 'MATCH (p1:Player { name:"' +
       $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
       $scope.search.name.toLowerCase() + '" }),' +
-      ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
+' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
 
-   $http({
-     method:"post",
-     url:  'https://app39991019:c1R9PJMtTrQzXW2F4bnq@app39991019.sb05.stations.graphenedb.com:24789/db/data/cypher',
-     accepts: "application/json",
-     datatype:"json",
-     data:{ "query" : query },
-     success: function(){},
-     error:function(jqxhr, textstatus, errorthrown){}
+$http({
+ method:"post",
+ url:  'https://localhost:7474/db/data/cypher',
+ accepts: "application/json",
+ datatype:"json",
+ data:{ "query" : query },
+ success: function(){},
+ error:function(jqxhr, textstatus, errorthrown){}
    })//end of placelist ajax
 
-    .success(function(data) {
+.success(function(data) {
 
-$scope.dataset = '';
-   var players = [];
-   var teams = [];
-   var years = [];
+  $scope.dataset = '';
+  var players = [];
+  var teams = [];
+  var years = [];
 
-   for( var i = 0; i < data.data[0][0].length; i++){
-     if(i%2 === 0){
-       players.push(data.data[0][0][i]);
-     } else{
-       teams.push(data.data[0][0][i]);
-     }
+  for( var i = 0; i < data.data[0][0].length; i++){
+   if(i%2 === 0){
+     players.push(data.data[0][0][i]);
+   } else{
+     teams.push(data.data[0][0][i]);
    }
+ }
 
-   for(var i =0 ; i < data.data[0][1].length; i++){
-     if(data.data[0][1][i] !== null){
-       years.push(data.data[0][1][i]);
-     }
+ for(var i =0 ; i < data.data[0][1].length; i++){
+   if(data.data[0][1][i] !== null){
+     years.push(data.data[0][1][i]);
    }
+ }
 
-    var str = '';
+ var str = '';
 
-    for( var i = 0; i < teams.length; i++){
-     str += players[i].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ') + ((i === 0) ? "" : " who") +
-     ' played in ' + teams[i] + ' in ' + years[i] +' with ';
-     if(i === teams.length- 1){
-       str += players[i+1].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ');
-     }
-    }
+ for( var i = 0; i < teams.length; i++){
+   str += players[i].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ') + ((i === 0) ? "" : " who") +
+   ' played in ' + teams[i] + ' in ' + years[i] +' with ';
+   if(i === teams.length- 1){
+     str += players[i+1].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ');
+   }
+ }
 
-    $scope.dataset = str;
+ $scope.dataset = str;
 
-    })
-  };
+})
+};
 });
