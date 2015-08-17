@@ -58,10 +58,6 @@ $scope.dataset = '';
        str += players[i+1].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ');
      }
     }
-      // console.log(data);
-      // console.log(data.data);
-      // console.log(data.data[0]);
-      // console.log(data.data[0][0]);
 
     $scope.dataset = str;
 
