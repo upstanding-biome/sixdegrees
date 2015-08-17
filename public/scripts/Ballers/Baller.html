@@ -1,11 +1,19 @@
 <form name="ballerselect" novalidate>
-  <input id="ballerOne" novalidate type="text" placeholder="Player 1"
+  <input id="ballerOne" name="one" novalidate type="text" placeholder="Player 1"
     ng-model="searchText.name"
     ng-class="{'good': ((ballers|filter:searchText:case:true).length === 1) }"/>
-    <br>
+  <img src="styles/arrow.jpeg" height="10px">
   <input id="ballerTwo" novalidate type="text" placeholder="Player 2"
     ng-model="search.name"
     ng-class="{'good2': ((ballers|filter:search:case:true).length === 1) }"/><br>
+    <br>
+    <br>
+    <br>
   <input type="submit" ng-click="callDB(searchText.name, search.name)" value="Connect!" ng-disabled="{{false}}"/>
 </form>
-<p>{{dataset}}</p>
+<!--   <div ng-if="(ballers|filter:search:case).length <= 5">Baller2: Did you mean?
+    <div ng-repeat="ballee in ballers|filter:search:case">
+      <div ng-bind="ballee.name"></div>
+    </div>
+  </div> -->
+<div class="text-center restr" ><p style="color:#fff; margin-left: 20%; width: 60%">{{dataset}}</p></div>

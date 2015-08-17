@@ -32,5 +32,24 @@ DELETE n,r
 git fetch upstream
 git rebase upstream /master
 
+**************GRAPH STORY******************
+
+USING PERIODIC COMMIT
+LOAD CSV FROM 'http://chrissalam.com/six/MasterDB.csv' as line
+MERGE (p:Player {name:line[0]})
+MERGE (g:Team {name:line[2], year:line[1]})
+return p,g;
 
 
+USING PERIODIC COMMIT
+LOAD CSV FROM 'http://chrissalam.com/six/MasterDB.csv' as line
+MATCH (p:Player), (t:Team)
+WHERE p.name = line[0] AND t.name = line[2] AND t.year = line[1]
+CREATE (p)-[r:PLAYS_IN]->(t)
+return p, t
+
+-----------
+
+MATCH (p1:Player { name:"russ smith" }),(p2:Player { name:"alex len" }),
+  p = shortestPath((p1)-[*]-(p2))
+RETURN p
