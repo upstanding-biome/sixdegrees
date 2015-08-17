@@ -1,0 +1,42 @@
+/*styles.css*/
+
+.body {
+  background-image: url('styles/hardwood.jpg');
+}
+
+form {
+  margin: 20px 50px 20px 20px;
+  padding: 20px 50px 20px 20px;
+}
+
+.restr {
+  width: 50%;
+  font-size: 40px;
+}
+
+input {
+  height: 40px;
+  width: 200px;
+  font-size: 100%;
+  text-align: center;
+}
+
+.titlepage {
+  margin-top: 50px 50px 50px 100px;
+  font-size: 200%;
+}
+
+input.ng-invalid, input.ng-dirty {
+    background: #FF0000;
+    border: 2px red solid;
+}
+
+input.good, input.good2 {
+    background: #00B200;
+    border: 2px green solid;
+}
+
+input.ng-pristine{
+    background: #000;
+    border: 2px black solid;
+}

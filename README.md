@@ -5,44 +5,49 @@
 
   - __Product Owner__: Christopher Salam
   - __Scrum Master__: Kim Merino
-  - __Development Team Members__: Christian Avalos, Kim Merino, Kent Ou, Christopher Salam
+  - __Development Team Members__: Cristian Avalos, Kim Merino, Kent Ou, Christopher Salam
 
 ## Table of Contents
 
 1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
-1. [Contributing](#contributing)
+2. [Requirements](#requirements)
+3. [Development](#development)
+    a. [Installing Dependencies](#installing-dependencies)
+    b. [Tasks](#tasks)
+4. [Team](#team)
+5. [Contributing](#contributing)
 
 ## Usage
 
-> Type in two NBA players to compare and click the button to see their degrees of separation. 
+1. Brew install neo4j
+2. Install or update to java 1.7 or later.
+2. Type npm install in your console or terminal to install the dependencies
+3. Type neo4j start in a new tab in your terminal to start the neo4j server
+4. Type node server.js to start server and open browser to localhost:7473
+5. Type two players names and press Enter.
 
-## Requirements
+## Dependancies
 
-- Node 0.10.x
-- Angular 
-- mySQL 
-- etc
-- etc
+- Java 1.7
+- Neo4J
+- Node
+- Express
+- Angular
+- Bootstrap
+- Angular UI Router
 
 ## Development
 
 ### Installing Dependencies
 
-From within the root directory:
 
-```sh
-
-```
+The package json contains all necessary dependencies except for java and neo4J.
 
 ### Roadmap
 
 View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
 
+Our project is still not deployed successfully. The project works in localhost and has a hosted database using graph story, an add in of heroku. The database is located at https://neo-55cb99b18376e-364459c455.do-stories.graphstory.com:7473/browser/ and ask someone involved in the project for the database code.
 
 ## Contributing
 
