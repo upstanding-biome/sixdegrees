@@ -18,6 +18,7 @@ app.controller('BallerController', function($scope, $http){
       $scope.search.name.toLowerCase() + '" }),' +
 ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
 
+<<<<<<< HEAD
    $http({
      method:"POST",
      url: "http://localhost:7474/db/data/cypher",
@@ -29,6 +30,16 @@ app.controller('BallerController', function($scope, $http){
      data:{ "query" : query },
      success: function(){},
      error:function(jqxhr, textstatus, errorthrown){}
+=======
+$http({
+ method:"post",
+ url:  'https://localhost:7474/db/data/cypher',
+ accepts: "application/json",
+ datatype:"json",
+ data:{ "query" : query },
+ success: function(){},
+ error:function(jqxhr, textstatus, errorthrown){}
+>>>>>>> Code cleanup part 1
    })//end of placelist ajax
 
 .success(function(data) {
