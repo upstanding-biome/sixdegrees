@@ -17,6 +17,26 @@ console.log(__dirname);
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use(express.static(__dirname + '/public'));
 
+
+// app.use(express.static(__dirname + '/node_modules'));
+
+// routes
+app.listen(port);
+
+// shoutout to the user
+console.log('Tip off on port', port);
+
+// expose the app
+exports = module.exports = app;
+
+
+
+// ******************************************************************************************************************************* //
+// ****************************************** ATTEMPT TO SOLVE CROS PROBLEM  ***************************************************** //
+
+// Note: This was an attempt to solve our CROS headers problem. We explore different solutions. 
+
+
 // app.all('*', function(req, res){
 //     res.header("Access-Control-Allow-Origin", "*");
 //     res.header("Access-Control-Allow-Headers", "X-Requested-With");
@@ -40,15 +60,3 @@ app.use(express.static(__dirname + '/public'));
 //         next();
 //     }
 // });
-
-// app.use(express.static(__dirname + '/node_modules'));
-
-// routes
-app.listen(port);
-
-// shoutout to the user
-console.log('Tip off on port', port);
-
-// expose the app
-exports = module.exports = app;
-
