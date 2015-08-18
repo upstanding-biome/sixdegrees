@@ -18,9 +18,17 @@ app.controller('BallerController', function($scope, $http){
       $scope.search.name.toLowerCase() + '" }),' +
 ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
 
-$http({
- method:"post",
- url:  'https://localhost:7474/db/data/cypher',
+   $http({
+     method:"POST",
+     url: "http://localhost:7474/db/data/cypher",
+     /*Use this url for local hosting*/
+     // method:"post",
+     // url:  'https://app39991019:c1R9PJMtTrQzXW2F4bnq@app39991019.sb05.stations.graphenedb.com:24789/db/data/cypher',
+     accepts: "application/json",
+     datatype:"json",
+     data:{ "query" : query },
+     success: function(){},
+     error:function(jqxhr, textstatus, errorthrown){}
  accepts: "application/json",
  datatype:"json",
  data:{ "query" : query },
