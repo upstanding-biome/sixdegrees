@@ -9,16 +9,13 @@ how to use neo4j
 
 5. Once your database has started, you can visit localhost:7474 to use the neo4j browser. Here you can visually see the graph database with its nodes and connections
 
-
 6. You can write Cypher query commands in the browser
-
-
 
 ********************** LOAD FILE AND CREATE NODES (NON REPEATED PLAYERS, NON REPEATED TEAMS) ******************
 
 LOAD CSV FROM 'file:///Users/CristianAvalos/Desktop/Telegraph_projects/Week6/Greenfield project/sixdegrees/TEST2.csv' as line
 MERGE (p:Player {name:line[1]})
-MERGE (g:Team {name:line[3], year:line[2]w})
+MERGE (g:Team {name:line[3], year:line[2]})
 return p,g
 
 ********************************* CREATE CONNECTION BETWEEN TEAMS AND PLAYERS ********************************

@@ -32,9 +32,9 @@ exports = module.exports = app;
 
 
 // ******************************************************************************************************************************* //
-// ****************************************** ATTEMPT TO SOLVE CROS PROBLEM  ***************************************************** //
+// ****************************************** ATTEMPT TO SOLVE CORS PROBLEM  ***************************************************** //
 
-// Note: This was an attempt to solve our CROS headers problem. We explore different solutions. 
+// Note: This was an attempt to solve our CROS headers problem. We explore different solutions.
 
 
 // app.all('*', function(req, res){
