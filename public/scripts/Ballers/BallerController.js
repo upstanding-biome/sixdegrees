@@ -29,11 +29,6 @@ app.controller('BallerController', function($scope, $http){
      data:{ "query" : query },
      success: function(){},
      error:function(jqxhr, textstatus, errorthrown){}
- accepts: "application/json",
- datatype:"json",
- data:{ "query" : query },
- success: function(){},
- error:function(jqxhr, textstatus, errorthrown){}
    })//end of placelist ajax
 
 .success(function(data) {
