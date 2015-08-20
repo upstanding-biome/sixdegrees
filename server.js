@@ -1,35 +1,77 @@
-// modules =================================================
+"use strict";
+
+//========================================================\\
+//   Call in express and other node_modules               \\
+//========================================================\\
+
+// var db = require('./db.js')
 var express = require('express');
 var bodyParser = require('body-parser');
-
-// configuration ===========================================
-  // connect to database here
+var db_url = "https://user:pass@example-url.do-stories.graphstory.com:7473"; // var db_url = 'http://localhost:7474';
+var db = require("seraph")(db_url);
 var app = express();
 
-// config files
-// var db = require(DATABASE PATH NAME);
+//========================================================\\
+//   Sets port to environment port or local port          \\
+//========================================================\\
 
-// set our port
 var port = process.env.PORT || 7473;
 console.log(__dirname);
-// set the static files location
 
+//========================================================\\
+//   connecting the client and server                     \\
+//   allows for CORS (cross origin resource sharing)      \\
+//========================================================\\
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+// for more info, see: http://enable-cors.org/server_expressjs.html
+
+//========================================================\\
+//   statically serves files from the client directory    \\
+//========================================================\\
+
+app.use(express.static('public'));
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use(express.static(__dirname + '/public'));
 
+//========================================================\\
+//   ROUTES                                               \\
+//========================================================\\
 
-// app.use(express.static(__dirname + '/node_modules'));
+app.get('/', function(req, res) {
+  res.location('/public/index.html');
+});
 
-// routes
-app.listen(port);
+app.get('#/player',function(err, result){
+    if (err) { console.log(err); }
+    if (result) { console.log(result); }
+    // db.queryRaw(cypher, function(err, result) {
+    //   if (err) { throw err; }
+    //   console.log("result",result);
+    // })
 
-// shoutout to the user
-console.log('Tip off on port', port);
+})
 
-// expose the app
+//========================================================\\
+//   Calling the server                                   \\
+//========================================================\\
+
+app.listen(port, function() {
+  var host = server.address().address;
+  console.log('Tip off on port', host, port);
+});
+
 exports = module.exports = app;
 
+//***
 
+// config files
+// var db = require(DATABASE PATH NAME);
 
 // ******************************************************************************************************************************* //
 // ****************************************** ATTEMPT TO SOLVE CORS PROBLEM  ***************************************************** //

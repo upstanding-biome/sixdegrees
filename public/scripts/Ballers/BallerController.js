@@ -12,7 +12,7 @@ app.controller('BallerController', function($scope, $http){
   $scope.search = {};
   $scope.search.name = '';
 
-  $scope.callDB = function(name1, name2) {
+  $scope.callDB = function() {
     var query = 'MATCH (p1:Player { name:"' +
       $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
       $scope.search.name.toLowerCase() + '" }),' +
@@ -31,39 +31,39 @@ app.controller('BallerController', function($scope, $http){
      error:function(jqxhr, textstatus, errorthrown){}
    })//end of placelist ajax
 
-.success(function(data) {
+    .success(function(data) {
 
-  $scope.dataset = '';
-  var players = [];
-  var teams = [];
-  var years = [];
+      $scope.dataset = '';
+      var players = [];
+      var teams = [];
+      var years = [];
 
-  for( var i = 0; i < data.data[0][0].length; i++){
-   if(i%2 === 0){
-     players.push(data.data[0][0][i]);
-   } else{
-     teams.push(data.data[0][0][i]);
-   }
- }
+      for( var i = 0; i < data.data[0][0].length; i++){
+         if(i%2 === 0){
+           players.push(data.data[0][0][i]);
+         } else{
+           teams.push(data.data[0][0][i]);
+         }
+       }
 
- for(var i =0 ; i < data.data[0][1].length; i++){
-   if(data.data[0][1][i] !== null){
-     years.push(data.data[0][1][i]);
-   }
- }
+      for(var i =0 ; i < data.data[0][1].length; i++){
+       if(data.data[0][1][i] !== null){
+         years.push(data.data[0][1][i]);
+       }
+      }
 
- var str = '';
+      var str = '';
 
- for( var i = 0; i < teams.length; i++){
-   str += players[i].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ') + ((i === 0) ? "" : " who") +
-   ' played in ' + teams[i] + ' in ' + years[i] +' with ';
-   if(i === teams.length- 1){
-     str += players[i+1].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ');
-   }
- }
+      for( var i = 0; i < teams.length; i++){
+       str += players[i].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ') + ((i === 0) ? "" : " who") +
+       ' played in ' + teams[i] + ' in ' + years[i] +' with ';
+       if(i === teams.length- 1){
+         str += players[i+1].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ');
+       }
+      }
 
- $scope.dataset = str;
-
-})
-};
+     $scope.dataset = str;
+     
+    })
+  };
 });
