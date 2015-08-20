@@ -1,6 +1,11 @@
 
 
 app.controller('BallerController', function($scope, $http){
+
+  String.prototype.capitalizeFirstLetter = function() {
+    return this.charAt(0).toUpperCase() + this.slice(1);
+  }
+
   //Search and SearchText are separate functions in angular
   //We elected not to write a custom function and use these two over different players.
   $scope.searchText = {};
@@ -11,92 +16,61 @@ app.controller('BallerController', function($scope, $http){
 
   $scope.callDB = function() {
     var query = 'MATCH (p1:Player { name:"' +
-    $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
-    $scope.search.name.toLowerCase() + '" }),' +
-    ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
-    console.log(query);
-    $http({
-      method:"POST",
-      url: '/graph',
-      // url: "https://neo-55cb99b18376e-364459c455.do-stories.graphstory.com:7473/db/data/cypher",
-      accepts: "application/json",
-      datatype:"json",
-      data: query,
-      success: function(data){ console.log('postdata',data); },
-      error:function(jqxhr, textstatus, errorthrown){ console.log(errorthrown); }
-    })
-  };
-    // var query = 'MATCH (p1:Player { name:"' +
-    //     $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
-    //     $scope.search.name.toLowerCase() + '" }),' +
-    //     ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
-    //     console.log(query);
+      $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
+      $scope.search.name.toLowerCase() + '" }),' +
+' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
 
-    // db.queryRaw(cypher, function(err, result) {
-    //   if (err) { throw err; }
-    //   console.log("result",result);
-    // })
+   $http({
+     method:"POST",
+     url: "http://localhost:7474/db/data/cypher",
+     /*Use this url for local hosting*/
+     // method:"post",
+     // url:  'https://app39991019:c1R9PJMtTrQzXW2F4bnq@app39991019.sb05.stations.graphenedb.com:24789/db/data/cypher',
+     accepts: "application/json",
+     datatype:"json",
+     data:{ "query" : query },
+     success: function(){},
+     error:function(jqxhr, textstatus, errorthrown){}
+   })//end of placelist ajax
 
+.success(function(data) {
 
-   //  var query = 'MATCH (p1:Player { name:"' +
-   //    $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
-   //    $scope.search.name.toLowerCase() + '" }),' +
-   //    ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
-   //    console.log(query);
-   // $http({
-   //   method:"POST",
-   //   url: "https://neo-55cb99b18376e-364459c455.do-stories.graphstory.com:7473/db/data/cypher",
-   //   accepts: "application/json",
-   //   datatype:"json",
-   //   withCredentials: true,
-   //   headers: {
-   //      'Access-Control-Allow-Origin' : 'http://six-dribbles.herokuapp.com',
-   //      'Access-Control-Allow-Methods' : 'POST, GET, OPTIONS, PUT',
-   //      'Content-Type': 'application/json',
-   //      'Accept': 'application/json'
-   //   },
-   //   data: { "query" : query },
-   //   success: function(data){},
-   //   error:function(jqxhr, textstatus, errorthrown){
-   //  }
-   // })//end of placelist ajax
-   //  .success(function(data) {
+  $scope.dataset = '';
+  var players = [];
+  var teams = [];
+  var years = [];
 
-   //    console.log(data);
-   //    console.log(data.data);
-   //    console.log(data.data[0]);
-   //    console.log(data.data[0][0]);
+  for( var i = 0; i < data.data[0][0].length; i++){
+   if(i%2 === 0){
+     players.push(data.data[0][0][i]);
+   } else{
+     teams.push(data.data[0][0][i]);
+   }
+ }
 
-// $scope.dataset = '';
+ for(var i =0 ; i < data.data[0][1].length; i++){
+   if(data.data[0][1][i] !== null){
+     years.push(data.data[0][1][i]);
+   }
+ }
 
-//    var players = [];
-//    var teams = [];
-//    var years = [];
+ var str = '';
 
-//    for( var i = 0; i < data.data[0][0].length; i++){
-//      if(i%2 === 0){
-//        players.push(data.data[0][0][i]);
-//      } else{
-//        teams.push(data.data[0][0][i]);
-//      }
-//    }
+ for( var i = 0; i < teams.length; i++){
+   str += players[i].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ') + ((i === 0) ? "" : " who") +
+   ' played in ' + teams[i] + ' in ' + years[i] +' with ';
+   if(i === teams.length- 1){
+     str += players[i+1].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ');
+   }
+ }
 
-//    for(var i =0 ; i < data.data[0][1].length; i++){
-//      if(data.data[0][1][i] !== null){
-//        years.push(data.data[0][1][i]);
-//      }
-//    }
+ $scope.dataset = str;
 
-//     var str = '';
-
-//     for( var i = 0; i < teams.length; i++){
-//      str += players[i] + ' played in ' + teams[i] + ' in ' + years[i] +' with ';
-//      if(i === teams.length- 1){
-//        str += players[i+1];
-//      }
-//     }
-
-
+<<<<<<< HEAD
 //     $scope.dataset = str;
     // })
+=======
+})
+};
+>>>>>>> f6ffe884d443c7bdb96716a876ac00d7ade3ba6c
 });

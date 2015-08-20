@@ -32,29 +32,6 @@ app.get('#/player',function(err, result){
 app.use('/node_modules', express.static(__dirname + '/node_modules'));
 app.use(express.static(__dirname + '/public'));
 
-// app.all('*', function(req, res){
-//     res.header("Access-Control-Allow-Origin", "*");
-//     res.header("Access-Control-Allow-Headers", "X-Requested-With");
-//     console.log(res);
-//     // res.send(
-//     //     { posts : ... }
-//     // );
-// });
-
-app.all('*', function(req, res,next) {
-    /*Headers*/
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header("Access-Control-Allow-Origin",  "http://six-dribbles.herokuapp.com");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
-    res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
-
-    if ('OPTIONS' == req.method) {
-        res.send(200);
-    }
-    else {
-        next();
-    }
-});
 
 // app.use(express.static(__dirname + '/node_modules'));
 
@@ -65,4 +42,36 @@ app.listen(port);
 console.log('Tip off on port', port);
 
 // expose the app
-exports = module.exports = appServer;
+exports = module.exports = app;
+
+
+
+// ******************************************************************************************************************************* //
+// ****************************************** ATTEMPT TO SOLVE CORS PROBLEM  ***************************************************** //
+
+// Note: This was an attempt to solve our CROS headers problem. We explore different solutions.
+
+
+// app.all('*', function(req, res){
+//     res.header("Access-Control-Allow-Origin", "*");
+//     res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//     console.log(res);
+//     // res.send(
+//     //     { posts : ... }
+//     // );
+// });
+
+// app.all('*', function(req, res,next) {
+//     /*Headers*/
+//     res.header("Access-Control-Allow-Credentials", true);
+//     res.header("Access-Control-Allow-Origin",  "http://six-dribbles.herokuapp.com");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+//     res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
+
+//     if ('OPTIONS' == req.method) {
+//         res.send(200);
+//     }
+//     else {
+//         next();
+//     }
+// });
