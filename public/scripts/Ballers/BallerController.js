@@ -1,5 +1,3 @@
-
-
 app.controller('BallerController', function($scope, $http){
 
   String.prototype.capitalizeFirstLetter = function() {
@@ -33,44 +31,39 @@ app.controller('BallerController', function($scope, $http){
      error:function(jqxhr, textstatus, errorthrown){}
    })//end of placelist ajax
 
-.success(function(data) {
+    .success(function(data) {
 
-  $scope.dataset = '';
-  var players = [];
-  var teams = [];
-  var years = [];
+      $scope.dataset = '';
+      var players = [];
+      var teams = [];
+      var years = [];
 
-  for( var i = 0; i < data.data[0][0].length; i++){
-   if(i%2 === 0){
-     players.push(data.data[0][0][i]);
-   } else{
-     teams.push(data.data[0][0][i]);
-   }
- }
+      for( var i = 0; i < data.data[0][0].length; i++){
+         if(i%2 === 0){
+           players.push(data.data[0][0][i]);
+         } else{
+           teams.push(data.data[0][0][i]);
+         }
+       }
 
- for(var i =0 ; i < data.data[0][1].length; i++){
-   if(data.data[0][1][i] !== null){
-     years.push(data.data[0][1][i]);
-   }
- }
+      for(var i =0 ; i < data.data[0][1].length; i++){
+       if(data.data[0][1][i] !== null){
+         years.push(data.data[0][1][i]);
+       }
+      }
 
- var str = '';
+      var str = '';
 
- for( var i = 0; i < teams.length; i++){
-   str += players[i].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ') + ((i === 0) ? "" : " who") +
-   ' played in ' + teams[i] + ' in ' + years[i] +' with ';
-   if(i === teams.length- 1){
-     str += players[i+1].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ');
-   }
- }
+      for( var i = 0; i < teams.length; i++){
+       str += players[i].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ') + ((i === 0) ? "" : " who") +
+       ' played in ' + teams[i] + ' in ' + years[i] +' with ';
+       if(i === teams.length- 1){
+         str += players[i+1].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ');
+       }
+      }
 
- $scope.dataset = str;
-
-<<<<<<< HEAD
-//     $scope.dataset = str;
-    // })
-=======
-})
-};
->>>>>>> f6ffe884d443c7bdb96716a876ac00d7ade3ba6c
+     $scope.dataset = str;
+     
+    })
+  };
 });
