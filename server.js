@@ -11,7 +11,7 @@ var express = require('express'),
   bodyParser = require('body-parser'),
   // config = require('./config');
   app = express(),
-  dbRemote = require('./db.js'),
+  dbRemote = require('db/db.js'),
   morgan = require('morgan');
 
 /*========================================================
