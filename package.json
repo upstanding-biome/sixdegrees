@@ -25,6 +25,7 @@
     "gulp": "^3.9.0",
     "gulp-cli": "^0.3.0",
     "http-status": "^0.2.0",
+    "seraph": "^0.13.3",
     "ui-router": "0.0.1"
   },
   "devDependencies": {
