@@ -18,6 +18,7 @@
   "homepage": "https://github.com/upstanding-biome/sixdegrees#readme",
   "dependencies": {
     "angular": "^1.4.3",
+    "body-parser": "^1.13.3",
     "bootstrap": "^3.3.5",
     "debug": "~2.2.0",
     "express": "^4.13.3",
