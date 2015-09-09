@@ -17,60 +17,26 @@ app.controller('BallerController', function($scope, $http){
       $scope.searchText.name.toLowerCase() + '" })' + ',(p2:Player{ name:"' +
       $scope.search.name.toLowerCase() + '" }),' +
 ' p = shortestPath((p1)-[*]-(p2)) RETURN EXTRACT(n in nodes(p) | n.name), EXTRACT(n in nodes(p) | n.year), RELATIONSHIPS(p)';
-    // console.log(query);
-    // var res = $http.get('#/player',query)
-    // res.success(function(data, status, headers, config){
-    //   console.log(response.config.data.query);
-    // })
-    // res.error(function(data, status, headers, config){
-    //   console.log("error in CallDB", data)
-    // })
-    
-/*===================================
-This area is under heavy construction.
-====================================*/
-
    $http({
-     method:"GET",
-     // url: "http://localhost:7474/db/data/cypher",
+     method:"POST",
      url: '/player',
      accepts: "application/json",
      datatype:"json",
      data: { "query" : query },
      error:function(jqxhr, textstatus, errorthrown){console.log("error",query,errorthrown)}
-   })//end of placelist ajax
+   })
     .then(function(response, data) {
-      console.log(response.config.data.query);
-    //   $scope.dataset = '';
-    //   var players = [];
-    //   var teams = [];
-    //   var years = [];
+      console.log(response.data.data[0][0]);
+      $scope.dataset = '';
 
-    //   for( var i = 0; i < data.data[0][0].length; i++){
-    //      if(i%2 === 0){
-    //        players.push(data.data[0][0][i]);
-    //      } else{
-    //        teams.push(data.data[0][0][i]);
-    //      }
-    //    }
+      var answer = response.data.data[0][0];
 
-    //   for(var i =0 ; i < data.data[0][1].length; i++){
-    //    if(data.data[0][1][i] !== null){
-    //      years.push(data.data[0][1][i]);
-    //    }
-    //   }
-
-    //   var str = '';
-
-    //   for( var i = 0; i < teams.length; i++){
-    //    str += players[i].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ') + ((i === 0) ? "" : " who") +
-    //    ' played in ' + teams[i] + ' in ' + years[i] +' with ';
-    //    if(i === teams.length- 1){
-    //      str += players[i+1].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(' ');
-    //    }
-    //   }
-
-    //  $scope.dataset = str;
+      for (var i = 0; i < answer.length; i++){
+        if (i % 2 === 0) { answer[i] = answer[i].split(" ").map(function(a){return a.capitalizeFirstLetter(); }).join(" ") }
+        else if (i === 1) { answer[i] = ' played in ' + answer[i] + " with "; }
+        else { answer[i] = ' who played in ' + answer[i] + " with "; }
+     }
+     $scope.dataset = answer.join('');
      
     })
   };
