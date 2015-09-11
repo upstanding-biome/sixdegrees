@@ -24,8 +24,8 @@ var port = process.env.PORT || 7473;
 |=======================================================*/
 
 app.use('player', function(req, res, next) {
-  console.log("req",req);
-  console.log("res",res);
+  // console.log("req",req);
+  // console.log("res",res);
   res.header("access-control-allow-origin", "*");
   res.header("access-control-allow-headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
@@ -55,6 +55,11 @@ app.post('/player', function(req, res){
         if (err) throw err;
   res.send(result);
   });
+});
+
+app.post('/picture', function(req, res){
+  var str = req.body["data"];
+  res.send(str);
 });
 
 /*=======================================================|
