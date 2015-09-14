@@ -1,6 +1,8 @@
 # Six Dribbles
 > This app allows a user to type in any two basketball players and will create a graphic visualization of their relationship.
 
+> Visit the site at [sixdribbles.com](http://sixdribbles.com)
+
 ## Team
 
   - __Product Owner__: Christopher Salam
