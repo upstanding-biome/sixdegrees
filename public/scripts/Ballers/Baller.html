@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-<form name="ballerselect" novalidate>
+<form name="ballerselect" style="margin-bottom: 70px;" novalidate>
   <input id="ballerOne" name="one" novalidate type="text" placeholder="Player 1"
     ng-model="searchText.name"
     ng-class="{'good': ((ballers|filter:searchText:case:false).length === 1) }"/>
@@ -12,5 +12,5 @@
     <br>
   <input class=" btn btn-primary" style="background-color: #B34F2F;border-color: #B34F2F" type="submit" ng-click="callDB(searchText.name, search.name)" value="Connect!" ng-disabled="{{false}}"/>
 </form>
-<div class="text-center restr" ><p style="font-size: 200%; color:#fff; margin-left: 20%; width: 60%">{{dataset}}</p></div>
+<div class="text-center restr" style="margin-top: 20px;"><p style="font-size: 200%; color:#fff; margin-left: 20%; width: 60%">{{dataset}}</p></div>
 <div id="picBaller"></div>
